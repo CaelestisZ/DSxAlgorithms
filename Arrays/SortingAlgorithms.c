@@ -2,12 +2,14 @@
 #include<stdbool.h>
 
 void SelectionSort(int* nums, int n){
-    // The idea is to compare each of the elements simultaneously and bring the minimum element to the beginning
-    // Time complexity = O(n^2)
-    // Space complexity = O(1)
-    // Therefore, this method is quite useful when memory write is a costly operation but the user is willing to
-    // give minimal priority to time.
-    // Worst case = Best case = O(n^2)
+    /*
+    The idea is to compare each of the elements simultaneously and bring the minimum element to the beginning
+    Time complexity = O(n^2)
+    Space complexity = O(1)
+    Therefore, this method is quite useful when memory write is a costly operation but the user is willing to
+    give minimal priority to time.
+    Worst case = Best case = O(n^2)
+    */
     int temp;
     for (int i = 0; i<n; i++) {
         for (int j = i+1; j<n; j++) {
@@ -21,11 +23,13 @@ void SelectionSort(int* nums, int n){
 }
 
 void InefficientBubbleSort(int *arr, int n) {
-    // The main idea is to swap each of the adjacent elements after comparing, do this until the last position has the
-    // largest element.
-    // Time complexity = O(n^2)
-    // Space complexity = O(1)
-    // Best case = Worst case = O(n^2)
+    /*
+    The main idea is to swap each of the adjacent elements after comparing, do this until the last position has the
+    largest element.
+    Time complexity = O(n^2)
+    Space complexity = O(1)
+    Best case = Worst case = O(n^2)
+    */
     int temp;
     for (int i = 0; i<n-1; i++) {
         for (int j = 0; j<n-i-1; j++) {
@@ -39,12 +43,14 @@ void InefficientBubbleSort(int *arr, int n) {
 }
 
 void EfficientBubbleSort(int *arr, int n) {
-    // The main idea is to swap each of the adjacent elements after comparing, do this until the last position has the
-    // largest element.
-    // Time complexity = O(n^2)
-    // Space complexity = O(1)
-    // Best case = O(n) 
-    // Worst case = O(n^2)
+    /*
+    The main idea is to swap each of the adjacent elements after comparing, do this until the last position has the
+    largest element.
+    Time complexity = O(n^2)
+    Space complexity = O(1)
+    Best case = O(n) (when array is already sorted)
+    Worst case = O(n^2) (when array is in reverse order)
+    */
     int temp;
     bool isSwapped;
     for (int i = 0; i<n-1; i++) {
@@ -64,6 +70,12 @@ void EfficientBubbleSort(int *arr, int n) {
 }
 
 void InsertionSort(int *arr, int n) {
+    /*
+    Time complexity = O(n^2)
+    Space complexity = O(1)
+    Worst case = O(n^2) (when array is in reverse order)
+    Best case = O(n) (when sorted already)
+    */
     int key;
     int j;
     for (int i = 1; i<n; i++) {
