@@ -63,6 +63,20 @@ void EfficientBubbleSort(int *arr, int n) {
     }
 }
 
+void InsertionSort(int *arr, int n) {
+    int key;
+    int j;
+    for (int i = 1; i<n; i++) {
+        key = arr[i];
+        j = i-1;
+        while(j>=0 && arr[j]>key) {
+            arr[j+1] = arr[j];
+            j = j-1;
+        }
+        arr[j+1] = key;
+    }
+}
+
 void DisplayArray(int *nums, int n) {
     // Classic function to display the array
     for (int i = 0; i<n; i++) {
@@ -75,5 +89,6 @@ int main() {
     // SelectionSort(arr, 5);
     // InefficientBubbleSort(arr, 5);
     // EfficientBubbleSort(arr, 5);
+    // InsertionSort(arr, 5);
     DisplayArray(arr, 5);
 }
