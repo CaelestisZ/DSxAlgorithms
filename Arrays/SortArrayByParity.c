@@ -17,7 +17,7 @@ int* sortArrayByParity(int* A, int ASize, int* returnSize){
         // If even number is now present at the beginning increment the array pointer
         if (A[i]%2 == 0) i++;
         // If odd number is at the end decrement the array pointer
-        if (A[i]%2 == 1) j--;
+        if (A[j]%2 == 1) j--;
     }
     return A;
 }
