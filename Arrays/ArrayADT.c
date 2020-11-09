@@ -1,12 +1,62 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
 
 struct Array {
     int *A;
     int size;
     int length;
 };
+
+int getIndexArrayADT(struct Array A, int index) {
+    if (index >= 0 && index<A.length) {
+        return A.A[index];
+    }
+}
+
+int setIndexArrayADT(struct Array *A, int index, int value) {
+    if (index >= 0 && index<A->length) {
+        A->A[index] = value;
+        return 0;
+    }
+    return 1;
+}
+
+int maxElementArrayADT(struct Array A) {
+    int max = A.A[0];
+    for (int i = 1; i<A.length; i++) {
+        if (max<A.A[i]) {
+            max = A.A[i];
+        }
+    }
+    return max;
+}
+
+int sumArrayADT(struct Array A) {
+    int sum = 0;
+    for (int i = 0; i<A.length; i++) {
+        sum += A.A[i];
+    }
+    return sum;
+}
+
+int sumRecursiveArrayADT(struct Array A, int lastIndex) {
+    if (lastIndex < 0) {
+        return 0;
+    }
+    else {
+        return A.A[lastIndex] + sumRecursiveArrayADT(A, lastIndex - 1);
+    }
+}
+
+int minElementArrayADT(struct Array A) {
+    int min = A.A[0];
+    for (int i = 1; i<A.length; i++) {
+        if (min > A.A[i]) {
+            min = A.A[i];
+        }
+    }
+    return min;
+}
 
 int displayArrayADT(struct Array A) {
     printf("The elements of the array are: \n");
@@ -98,6 +148,122 @@ int binarySearchRecursiveArrayADT(struct Array A, int low, int high, int key) {
     return -1;
 }
 
+// Time complexity = O(n)
+// Space complexity = O(n);
+int reverseArrayADT(struct Array *A) {
+    struct Array B;
+    B.length = A->length;
+    B.size = A->size;
+    B.A = (int *)malloc((B.size)*sizeof(int));
+    for (int i = B.length-1; i>=0; i--) {
+        B.A[B.length-1-i] = A->A[i];
+    }
+    for (int i = 0; i<A->length; i++) {
+        A->A[i] = B.A[i];
+    }
+    return 0;
+}
+
+int *swap (int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// Time complexity = O(n)
+// Space complexiy = O(1)
+int reverseOptimizedArrayADT(struct Array *A) {
+    int i = 0;
+    int j = A->length-1;
+    while (i<j) {
+        // swap(&(A->A[i]), &(A->A[j]));
+        int temp = A->A[i];
+        A->A[i] = A->A[j];
+        A->A[j] = temp;
+        i++;
+        j--;
+    }
+    return 1;
+}
+
+int leftShiftArrayADT(struct Array *A) {
+    for (int i = 0; i<A->length-1; i++) {
+        A->A[i] = A->A[i+1];
+    }
+    A->A[A->length-1] = 0;
+    return 0;
+}
+
+int leftRotateArrayADT(struct Array *A) {
+    int temp = A->A[0];
+    for (int i = 0; i<A->length; i++) {
+        A->A[i] = A->A[i+1];
+        if (i==A->length-1) {
+            A->A[i] = temp;
+        }
+    }
+    return 0;
+}
+
+int rightShiftArrayADT(struct Array *A) {
+    for (int i = A->length-1; i>=1; i--) {
+        A->A[i] = A->A[i-1];
+    }
+    A->A[0] = 0;
+    return 0;
+}
+
+int rightRotateArrayADT(struct Array *A) {
+    int temp = A->A[A->length-1];
+    for (int i = A->length-1; i>=0; i--) {
+        A->A[i] = A->A[i-1];
+        if (i==0) {
+            A->A[i] = temp;
+        }
+    }
+    return 0;
+}
+
+int insertSortedArrayADT(struct Array *A, int element) {
+    int i = A->length-1;
+    while(A->A[i]>element) {
+        A->A[i+1] = A->A[i];
+        i--;
+    }
+    A->A[i+1] = element;
+    return 0;
+}
+
+int isSortedArrayADT(struct Array A) {
+    int i = 0;
+    while(i<A.length-1) {
+        if (A.A[i]>A.A[i+1]) {
+            return 0;
+        }
+        i++;
+    }
+    return 1;
+} 
+
+int negativePositiveArrayADT(struct Array *A) {
+    int i = 0;
+    int j = A->length - 1;
+    while(i<j) {
+        while (A->A[i]<0) {
+            i++;
+        }
+        while (A->A[j]>=0) {
+            j--;
+        }
+        if (i<j) {
+            int temp = A->A[i];
+            A->A[i] = A->A[j];
+            A->A[j] = temp;
+        }
+    }
+    return 0;
+}
+
 int main() {
     struct Array arr;
     int position;
@@ -130,16 +296,48 @@ int main() {
     displayArrayADT(arr);
 
     position = linearSearchArrayADT(arr, 5);
-
     printf("Position via Linear Search is: %d\n", position);
 
     position = binarySearchIterativeArrayADT(arr, 5);
-    
     printf("Position via Binary Search Iterative is: %d\n", position);
     
     position = binarySearchRecursiveArrayADT(arr, 0, arr.length-1, 5);
-    
     printf("Position via Binary Search Recursive is: %d\n", position);
+
+    reverseArrayADT(&arr);
+    printf("The array is reversed!\n");
+    displayArrayADT(arr);
+
+    reverseOptimizedArrayADT(&arr);
+    printf("The array is reversed using an optimized algorithm!\n");
+    displayArrayADT(arr);
+
+    // leftShiftArrayADT(&arr);
+    // printf("Left shifted array by one\n");
+    // displayArrayADT(arr);
+
+    // rightShiftArrayADT(&arr);
+    // printf("Right shifted array by one\n");
+    // displayArrayADT(arr);
+
+    // leftRotateArrayADT(&arr);
+    // printf("Left rotated array by one\n");
+    // displayArrayADT(arr);
+
+    // leftRotateArrayADT(&arr);
+    // printf("Left rotated array by one\n");
+    // displayArrayADT(arr);
+
+    // rightRotateArrayADT(&arr);
+    // printf("Right rotated array by one\n");
+    // displayArrayADT(arr);
+
+    insertSortedArrayADT(&arr, 3);
+    printf("%d inserted such that the resultant array is sorted\n", 3);
+    displayArrayADT(arr);
+
+    int isSorted = isSortedArrayADT(arr);
+    printf("Returned value for isSorted(): %d\n", isSorted);
 
     return 0;  
 }
