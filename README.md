@@ -30,16 +30,15 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 ## Types of recursion
 
- - **Tail recursion**
- - **Head recursion** 
- - **Tree recursion** 
- - **Indirect recursion**
- - **Direct recursion**
+ - Tail recursion
+ - Head recursion 
+ - Tree recursion 
+ - Indirect recursion
+ - Direct recursion
 
 ## Arrays
 
-The size of an array cannot be increased, thereby we need to create a larger sized array and copy the elements from the old array
-into the new array to achieve this.
+Remember, the size of an array cannot be increased.
 
 **Array ADT operations** 
 
