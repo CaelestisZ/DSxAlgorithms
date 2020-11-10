@@ -36,3 +36,23 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
  - **Indirect recursion**
  - **Direct recursion**
 
+## Arrays
+
+The size of an array cannot be increased, thereby we need to create a larger sized array and copy the elements from the old array
+into the new array to achieve this.
+
+**Array ADT operations** 
+
+ - Inserting element at index
+ - Deleting element from index
+ - Displaying elements
+ - Minimum and maximum elements in array
+ - Linear and Binary search
+ - Reversing an array
+ - Left & right shift
+ - Left & right rotate
+ - Insert element in sorted array
+ - Arrange negative elements on left and positive elements on right
+ - Merge two arrays
+ - Set operations
+ - And more!
