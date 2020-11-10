@@ -165,9 +165,9 @@ int reverseArrayADT(struct Array *A) {
 }
 
 int *swap (int *a, int *b) {
-    int temp = *a;
+    int hash = *a;
     *a = *b;
-    *b = temp;
+    *b = hash;
 }
 
 // Time complexity = O(n)
@@ -177,9 +177,9 @@ int reverseOptimizedArrayADT(struct Array *A) {
     int j = A->length-1;
     while (i<j) {
         // swap(&(A->A[i]), &(A->A[j]));
-        int temp = A->A[i];
+        int hash = A->A[i];
         A->A[i] = A->A[j];
-        A->A[j] = temp;
+        A->A[j] = hash;
         i++;
         j--;
     }
@@ -195,11 +195,11 @@ int leftShiftArrayADT(struct Array *A) {
 }
 
 int leftRotateArrayADT(struct Array *A) {
-    int temp = A->A[0];
+    int hash = A->A[0];
     for (int i = 0; i<A->length; i++) {
         A->A[i] = A->A[i+1];
         if (i==A->length-1) {
-            A->A[i] = temp;
+            A->A[i] = hash;
         }
     }
     return 0;
@@ -214,11 +214,11 @@ int rightShiftArrayADT(struct Array *A) {
 }
 
 int rightRotateArrayADT(struct Array *A) {
-    int temp = A->A[A->length-1];
+    int hash = A->A[A->length-1];
     for (int i = A->length-1; i>=0; i--) {
         A->A[i] = A->A[i-1];
         if (i==0) {
-            A->A[i] = temp;
+            A->A[i] = hash;
         }
     }
     return 0;
@@ -256,16 +256,338 @@ int negativePositiveArrayADT(struct Array *A) {
             j--;
         }
         if (i<j) {
-            int temp = A->A[i];
+            int hash = A->A[i];
             A->A[i] = A->A[j];
-            A->A[j] = temp;
+            A->A[j] = hash;
         }
     }
     return 0;
 }
 
+struct Array *mergeArrayADT(struct Array *A, struct Array *B) {
+    
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    struct Array *C;
+    C->length = A->length + B->length;
+    C->size = A->size + B->size;
+    C->A = (int *)malloc(C->size * sizeof(int));
+    
+    while (i<A->length && j<B->length) {
+        if (A->A[i]<B->A[j]) {
+            C->A[k++] = A->A[i++];
+        }
+        else {
+            C->A[k++] = A->A[j++];
+        }
+    }
+
+    for (;i<A->length;i++) {
+        C->A[k++] = A->A[i];
+    }
+    for (;j<B->length;j++) {
+        C->A[k++] = B->A[j];
+    }
+    
+    return C;
+}
+
+struct Array *unionArrayADT(struct Array *A, struct Array *B) {
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    struct Array *C;
+    C->length = A->length + B->length;
+    C->size = A->size + B->size;
+    C->A = (int *)malloc(C->size * sizeof(int));
+    
+    while (i<A->length && j<B->length) {
+        if (A->A[i]<B->A[j]) {
+            C->A[k++] = A->A[i++];
+        }
+        else if (A->A[i]>B->A[j]){
+            C->A[k++] = B->A[j++];
+        }
+        else {
+            A->A[k++] = A->A[i++];
+            j++;
+        }
+    }
+
+    C->length = k;
+
+    for (;i<A->length;i++) {
+        C->A[k++] = A->A[i];
+    }
+    for (;j<B->length;j++) {
+        C->A[k++] = B->A[j];
+    }
+    
+    return C;
+}
+
+struct Array* intersectionArrayADT(struct Array *A, struct Array *B) {
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    struct Array *C;
+    C->size = A->size + B->size;
+    C->A = (int *)malloc(C->size * sizeof(int));
+    
+    while (i<A->length && j<B->length) {
+        if (A->A[i]<B->A[j]) {
+            i++;
+        }
+        else if (A->A[i]>B->A[j]){
+            j++;
+        }
+        else {
+            C->A[k++] = A->A[i++];
+            j++;
+        }
+    }
+
+    C->length = k;
+    
+    return C;
+}
+
+struct Array *differenceArrayADT(struct Array *A, struct Array *B) {
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    struct Array *C;
+    C->length = A->length + B->length;
+    C->size = A->size + B->size;
+    C->A = (int *)malloc(C->size * sizeof(int));
+    
+    while (i<A->length && j<B->length) {
+        if (A->A[i]<B->A[j]) {
+            C->A[k++] = A->A[i++];
+        }
+        else if (A->A[i]>B->A[j]){
+            j++;
+        }
+        else {
+            i++;
+            j++;
+        }
+    }
+
+    C->length = k;
+
+    for (;i<A->length;i++) {
+        C->A[k++] = A->A[i];
+    }   
+    
+    return C;
+}
+
+
+int singleMissingElementArrayADT(struct Array* A) {
+    int sum = 0;
+    for (int i = 0; i<A->length; i++) {
+        sum += A->A[i];
+    }
+    int n = A->A[A->length-1];
+    return ((n+1)*n/2)-sum;
+}
+
+int singleMissingElementOptimizedArrayADT(struct Array *A, int low, int high) {
+    int diff = A->A[low]-low;
+    for (int i = 0; i<A->length; i++) {
+        if ((A->A[i]-i)!=diff) {
+            return i+diff;
+        }
+    }
+}
+
+int multipleMissingElementsArrayADT(struct Array *A, int low, int high) {
+    // Time complexity: O(n*missing)
+    // Space complexity: O(1)
+    int diff = A->A[low]-low;
+    for (int i = 0; i<A->length; i++) {
+        if (A->A[i]-i!=diff){
+            while(A->A[i]-i>diff) {
+                printf("%d ", i+diff);
+                diff++;
+            }
+        }
+    }
+    printf("\n");
+    return 0;
+}
+
+int multipleMissingElementsFasterArrayADT(struct Array *A) {
+    // Implementing the simplest form of hashing 
+    // Time complexity: O(n) [faster than the previous method]
+    // Space complexity: O(n+missing)
+    int *hash;
+    int low=A->A[0];
+    int high=A->A[0];
+    for (int i = 1; i<A->length; i++) {
+        if (low>A->A[i]) {
+            low = A->A[i];
+        }
+    }
+    for (int i = 1; i<A->length; i++) {
+        if (high<A->A[i]) {
+            high = A->A[i];
+        }
+    }
+    hash = (int *)malloc(high * sizeof(int));
+    for (int i = 0; i<A->length; i++) {
+        hash[A->A[i]]++;
+    }
+    for (int i = low; i<high; i++) {
+        if (hash[i]==0) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+    return 0;
+}
+
+int duplicateElementsSortedArrayADT(struct Array* A) {
+    // Time complexity: O(n)
+    // Space complexity: O(1)
+    int lastDuplicate = 0;
+    printf("The duplicate elements are: \n");
+    for (int i = 0; i<A->length-1; i++) {
+        if (A->A[i]==A->A[i+1] && A->A[i]!=lastDuplicate) {
+            // int count = 0;
+            // int j = i;
+            // lastDuplicate = A->A[i];
+            // printf("%d, count: ", A->A[i]);
+            // while(A->A[j]==lastDuplicate) {
+            //     count++;
+            //     j++;
+            // }
+            // printf("%d\n", count);
+            int j = i+1;
+            lastDuplicate = A->A[i];
+            while(A->A[i]==A->A[j]) {
+                j++;
+            }
+            printf("%d occurs %d times\n", A->A[i], j-i);
+            i = j-1;
+        }
+    }
+    return 0;
+}
+
+int duplicateElementsFasterSortedArrayADT(struct Array *A){
+    // Time complexity: O(n)
+    // Space complexity: O(n)
+    int *hash;
+    int high=A->A[0];
+    for (int i = 1; i<A->length; i++) {
+        if (high<A->A[i]) {
+            high = A->A[i];
+        }
+    }
+    hash = (int *)malloc(high * sizeof(int));
+    for (int i = 0; i<A->length; i++) {
+        hash[A->A[i]]++;
+    }
+    for (int i = 0; i<high; i++) {
+        if (hash[i]!=0) {
+            printf("%d occurs %d times", i, hash[i]);
+        }
+    }
+}
+
+int duplicatesUnsortedArrayADT(struct Array A) {
+    // Time complexity: O(n^2)
+    // Space complexity: O(1)
+    for (int i = 0; i<A.length; i++) {
+        int count = 1;
+        if (A.A[i]!=-1) {
+            for (int j = i+1; j<A.length; j++) {
+                if (A.A[i]==A.A[j]) {
+                    count++;
+                    A.A[j] = -1;
+                }
+            }
+            if (count > 1) {
+                printf("%d occurs %d times\n", A.A[i], count);
+            }
+        }
+    }
+}
+
+int sumOfPairIsKArrayADT(struct Array *A, int sum) {
+    printf("Pair of elements with sum = %d\n", sum);
+    for (int i = 0; i<A->length-1; i++) {
+        for (int j = i+1; j<A->length; j++) {
+            if (A->A[j] + A->A[i] == sum) {
+                printf("%d + %d = %d\n", A->A[j], A->A[i], sum);
+            }
+        }
+    }
+    return 0;
+}
+
+int sumOfPairIsKHashingArrayADT(struct Array *A, int sum) {
+    // Time complexity: O(n)
+    // Space complexity: O(n)
+    printf("Pair of elements with sum = %d implemented using hashing\n", sum);
+    int *hash;
+    int high = A->A[0];
+    for (int i = 1; i<A->length; i++) {
+        if (high<A->A[i]) {
+            high = A->A[i];
+        }
+    }
+    hash = (int *)malloc(high*sizeof(int));
+    for (int i = 0; i<A->length; i++) {
+        if (hash[sum-(A->A[i])]!=0) {
+            printf("%d + %d = %d\n", A->A[i], sum-(A->A[i]), sum);
+        }
+        hash[A->A[i]]++;
+    }
+    return 0;
+}
+
+int sumOfPairIsKSortedArrayADT(struct Array *A, int sum) {
+    int i = 0;
+    int j = A->length-1;
+    printf("Pair of elements with sum = %d for a sorted array\n", sum);
+    while(i<j) {
+        if (A->A[i]+A->A[j]>sum) {
+            j--;
+        }
+        else if (A->A[i]+A->A[j]<sum) {
+            i++;
+        }
+        else {
+            printf("%d + %d = %d\n", A->A[i], A->A[j], sum);
+            i++;
+            j--;
+        }
+    }
+    return 0;
+}
+
+int minMaxSingleScanArrayADT(struct Array *A) {
+    int min = A->A[0];
+    int max = A->A[0];
+    for (int i = 1; i<A->length; i++) {
+        if (min>A->A[i]) {
+            min = A->A[i];
+        }
+        else if (max<A->A[i]) {
+            max = A->A[i];
+        }
+    }
+    printf("\nMinimum element: %d\nMaximum element: %d\n", min, max);
+    return 0;
+}
+
 int main() {
     struct Array arr;
+
     int position;
     printf("Enter size of an array: ");
     scanf("%d", &arr.size);
@@ -283,34 +605,34 @@ int main() {
 
     displayArrayADT(arr);
 
-    // Call by address because the value of the passed variable is to be changed
-    addArrayADT(&arr, 6);
-    displayArrayADT(arr);
+    // // Call by address because the value of the passed variable is to be changed
+    // addArrayADT(&arr, 6);
+    // displayArrayADT(arr);
 
-    // Call by address because the value of the passed variable is to be changed
-    insertAtIndexArrayADT(&arr, 6, 0);
-    displayArrayADT(arr);
+    // // Call by address because the value of the passed variable is to be changed
+    // insertAtIndexArrayADT(&arr, 6, 0);
+    // displayArrayADT(arr);
 
-    // Call by address because the value of the passed variable is to be changed
-    deleteAtIndexArrayADT(&arr, 6);
-    displayArrayADT(arr);
+    // // Call by address because the value of the passed variable is to be changed
+    // deleteAtIndexArrayADT(&arr, 6);
+    // displayArrayADT(arr);
 
-    position = linearSearchArrayADT(arr, 5);
-    printf("Position via Linear Search is: %d\n", position);
+    // position = linearSearchArrayADT(arr, 5);
+    // printf("Position via Linear Search is: %d\n", position);
 
-    position = binarySearchIterativeArrayADT(arr, 5);
-    printf("Position via Binary Search Iterative is: %d\n", position);
+    // position = binarySearchIterativeArrayADT(arr, 5);
+    // printf("Position via Binary Search Iterative is: %d\n", position);
     
-    position = binarySearchRecursiveArrayADT(arr, 0, arr.length-1, 5);
-    printf("Position via Binary Search Recursive is: %d\n", position);
+    // position = binarySearchRecursiveArrayADT(arr, 0, arr.length-1, 5);
+    // printf("Position via Binary Search Recursive is: %d\n", position);
 
-    reverseArrayADT(&arr);
-    printf("The array is reversed!\n");
-    displayArrayADT(arr);
+    // reverseArrayADT(&arr);
+    // printf("The array is reversed!\n");
+    // displayArrayADT(arr);
 
-    reverseOptimizedArrayADT(&arr);
-    printf("The array is reversed using an optimized algorithm!\n");
-    displayArrayADT(arr);
+    // reverseOptimizedArrayADT(&arr);
+    // printf("The array is reversed using an optimized algorithm!\n");
+    // displayArrayADT(arr);
 
     // leftShiftArrayADT(&arr);
     // printf("Left shifted array by one\n");
@@ -332,12 +654,23 @@ int main() {
     // printf("Right rotated array by one\n");
     // displayArrayADT(arr);
 
-    insertSortedArrayADT(&arr, 3);
-    printf("%d inserted such that the resultant array is sorted\n", 3);
-    displayArrayADT(arr);
+    // insertSortedArrayADT(&arr, 3);
+    // printf("%d inserted such that the resultant array is sorted\n", 3);
+    // displayArrayADT(arr);
 
-    int isSorted = isSortedArrayADT(arr);
-    printf("Returned value for isSorted(): %d\n", isSorted);
+    // int isSorted = isSortedArrayADT(arr);
+    // printf("Returned value for isSorted(): %d\n", isSorted);
+
+    // printf("Missing elements in array are:\n");
+    // multipleMissingElementsFasterArrayADT(&arr);
+
+    duplicatesUnsortedArrayADT(arr);
+
+    sumOfPairIsKArrayADT(&arr, 10);
+    sumOfPairIsKHashingArrayADT(&arr, 10);
+    sumOfPairIsKSortedArrayADT(&arr, 10);
+
+    minMaxSingleScanArrayADT(&arr);
 
     return 0;  
 }
