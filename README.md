@@ -55,3 +55,25 @@ Remember, the size of an array cannot be increased.
  - Merge two arrays
  - Set operations
  - And more!
+
+## Strings
+
+**ASCII values: (0-127)** A - 65, a - 97, 0 - 48
+
+ - Characters given in single quotes
+ - Strings given in double quotes (appends the '\0' delimiter)
+ - Character pointers will create the string in heap unlike the previously mentioned two which is created in the stack
+ - Delimiter of scanf() is space or new line, whereas for gets() it is new line
+
+**String operations** 
+
+ - Length of string
+ - Displaying strings
+ - To upper or lower case
+ - Reversing strings
+ - Check if string is a palindrome or not
+ - Check for duplicates in string
+ - Check if string is an anagram or not
+ - Permutations of a string using recursion
+
+## Matrices

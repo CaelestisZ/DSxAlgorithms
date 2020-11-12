@@ -165,9 +165,9 @@ int reverseArrayADT(struct Array *A) {
 }
 
 int *swap (int *a, int *b) {
-    int hash = *a;
+    int temp = *a;
     *a = *b;
-    *b = hash;
+    *b = temp;
 }
 
 // Time complexity = O(n)
@@ -177,9 +177,9 @@ int reverseOptimizedArrayADT(struct Array *A) {
     int j = A->length-1;
     while (i<j) {
         // swap(&(A->A[i]), &(A->A[j]));
-        int hash = A->A[i];
+        int temp = A->A[i];
         A->A[i] = A->A[j];
-        A->A[j] = hash;
+        A->A[j] = temp;
         i++;
         j--;
     }
@@ -256,9 +256,9 @@ int negativePositiveArrayADT(struct Array *A) {
             j--;
         }
         if (i<j) {
-            int hash = A->A[i];
+            int temp = A->A[i];
             A->A[i] = A->A[j];
-            A->A[j] = hash;
+            A->A[j] = temp;
         }
     }
     return 0;
