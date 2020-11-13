@@ -77,3 +77,13 @@ Remember, the size of an array cannot be increased.
  - Permutations of a string using recursion
 
 ## Matrices
+
+### Types of Matrices
+
+ - Diagonal matrix: A[i][j] = 0 if i!=j
+ - Lower triangular matrix: A[i][j] = 0 if i < j and A[i][j] != 0 if i >= j
+ - Upper triangular matrix: A[i][j] = 0 if i > j and A[i][j] != 0 if i <= j 
+ - Symmetric matrix: A[i][j] = A[j][i] (Can be represented as a lower triangular or upper triangular matrix)
+ - Tridiagonal matrix: non zero elements at i-j=0, i-j=1 and i-j=-1. Rest are zeroes.
+ - Toeplitz matrix: A[i][j] = A[i-1][j-1] (elements at each of the diagonals are equal)
+ 
