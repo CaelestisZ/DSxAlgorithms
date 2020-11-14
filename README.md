@@ -28,7 +28,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
  - Recursion has an ascending as well as a descending phase considering the recursion stack
  - Loops have only an ascending phase
 
-## Types of recursion
+**Types of recursion**
 
  - Tail recursion
  - Head recursion 
@@ -38,7 +38,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 ## Arrays
 
-Remember, the size of an array cannot be increased.
+ - Array size is immutable
 
 **Array ADT operations** 
 
@@ -78,7 +78,7 @@ Remember, the size of an array cannot be increased.
 
 ## Matrices
 
-### Types of Matrices
+**Types of Matrices**
 
  - Diagonal matrix: A[i][j] = 0 if i!=j
  - Lower triangular matrix: A[i][j] = 0 if i < j and A[i][j] != 0 if i >= j
@@ -87,3 +87,5 @@ Remember, the size of an array cannot be increased.
  - Tridiagonal matrix: non zero elements at i-j=0, i-j=1 and i-j=-1. Rest are zeroes.
  - Toeplitz matrix: A[i][j] = A[i-1][j-1] (elements at each of the diagonals are equal)
  
+## Sparse Matrices
+
