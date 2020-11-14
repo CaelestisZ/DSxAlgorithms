@@ -195,11 +195,11 @@ int leftShiftArrayADT(struct Array *A) {
 }
 
 int leftRotateArrayADT(struct Array *A) {
-    int hash = A->A[0];
+    int temp = A->A[0];
     for (int i = 0; i<A->length; i++) {
         A->A[i] = A->A[i+1];
         if (i==A->length-1) {
-            A->A[i] = hash;
+            A->A[i] = temp;
         }
     }
     return 0;
@@ -214,11 +214,11 @@ int rightShiftArrayADT(struct Array *A) {
 }
 
 int rightRotateArrayADT(struct Array *A) {
-    int hash = A->A[A->length-1];
+    int temp = A->A[A->length-1];
     for (int i = A->length-1; i>=0; i--) {
         A->A[i] = A->A[i-1];
         if (i==0) {
-            A->A[i] = hash;
+            A->A[i] = temp;
         }
     }
     return 0;
@@ -226,11 +226,12 @@ int rightRotateArrayADT(struct Array *A) {
 
 int insertSortedArrayADT(struct Array *A, int element) {
     int i = A->length-1;
-    while(A->A[i]>element) {
+    while(element<A->A[i]) {
         A->A[i+1] = A->A[i];
         i--;
     }
     A->A[i+1] = element;
+    A->length++;
     return 0;
 }
 
@@ -664,13 +665,17 @@ int main() {
     // printf("Missing elements in array are:\n");
     // multipleMissingElementsFasterArrayADT(&arr);
 
-    duplicatesUnsortedArrayADT(arr);
+    // duplicatesUnsortedArrayADT(arr);
 
-    sumOfPairIsKArrayADT(&arr, 10);
-    sumOfPairIsKHashingArrayADT(&arr, 10);
-    sumOfPairIsKSortedArrayADT(&arr, 10);
+    // sumOfPairIsKArrayADT(&arr, 10);
+    // sumOfPairIsKHashingArrayADT(&arr, 10);
+    // sumOfPairIsKSortedArrayADT(&arr, 10);
 
-    minMaxSingleScanArrayADT(&arr);
+    // minMaxSingleScanArrayADT(&arr);
+
+    insertSortedArrayADT(&arr, 3);
+
+    displayArrayADT(arr);
 
     return 0;  
 }
