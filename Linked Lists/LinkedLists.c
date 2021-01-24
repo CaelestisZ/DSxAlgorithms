@@ -6,7 +6,7 @@ struct Node
 {
     int data;
     struct Node *next;
-} *first = NULL, *last = NULL, *second = NULL;
+} *first = NULL, *second = NULL, *third = NULL;
 
 void create(int A[], int n)
 {
@@ -16,6 +16,25 @@ void create(int A[], int n)
     first->data = A[0];
     first->next = NULL;
     last = first;
+
+    for (int i = 1; i < n; i++)
+    {
+        t = (struct Node *)malloc(sizeof(struct Node));
+        t->data = A[i];
+        t->next = NULL;
+        last->next = t;
+        last = t;
+    }
+}
+
+void create2(int A[], int n)
+{
+    int i;
+    struct Node *t, *last;
+    second = (struct Node *)malloc(sizeof(struct Node));
+    second->data = A[0];
+    second->next = NULL;
+    last = second;
 
     for (int i = 1; i < n; i++)
     {
@@ -213,7 +232,7 @@ void insertAtIndex(int index, int data)
 
 void insertEnd(int data)
 {
-    struct Node *t;
+    struct Node *t, *last = NULL;
     t = (struct Node *)malloc(sizeof(struct Node));
     t->data = data;
     t->next = NULL;
@@ -417,6 +436,7 @@ void reverseRecursive(struct Node *q, struct Node *p)
 
 void concatenate(struct Node *p, struct Node *q)
 {
+    third = p;
     while (p->next != NULL)
     {
         p = p->next;
@@ -427,8 +447,7 @@ void concatenate(struct Node *p, struct Node *q)
 void merge(struct Node *p, struct Node *q)
 {
     // Space complexity: O(1)
-    // Time complexity: O(n+m)
-    struct Node *third = NULL;
+    // Time complexity: O(n+m)`
     struct Node *last = NULL;
 
     // Copy the lesser of each of linked list's elements
@@ -437,14 +456,14 @@ void merge(struct Node *p, struct Node *q)
         third = p;
         last = p;
         p = p->next;
-        last->next = NULL;
+        third->next = NULL;
     }
     else
     {
         third = q;
         last = q;
         q = q->next;
-        last->next = NULL;
+        third->next = NULL;
     }
 
     // Copy the elements in first and second linked lists depending upon which of them is of lesser value
@@ -454,15 +473,15 @@ void merge(struct Node *p, struct Node *q)
         {
             last->next = q;
             last = q;
-            last->next = NULL;
             q = q->next;
+            last->next = NULL;
         }
         else
         {
             last->next = p;
             last = p;
-            last->next = NULL;
             p = p->next;
+            last->next = NULL;
         }
     }
 
@@ -477,41 +496,86 @@ void merge(struct Node *p, struct Node *q)
     }
 }
 
+int isLoop(struct Node *first)
+{
+    struct Node *p = first;
+    struct Node *q = first;
+    do
+    {
+        p = p->next;
+        q = q->next;
+        q = q ? q->next : q;
+    } while (p && q && p != q);
+    if (p == q)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
 int main()
 {
-    // int A[] = {6, 6, 2, 3, 10};
-    // create(A, 5);
+    int A[] = {2, 8, 10, 15, 17};
+    int B[] = {4, 7, 12, 14, 17};
+    create(A, 5);
+    create2(B, 5);
+
+    printf("Linked List 1: ");
+    display(first);
+    printf("Linked List 2: ");
+    display(second);
+
+    // concatenate(first, second);
+    // printf("Concatenated linked list: ");
+    // display(third);
+
+    merge(first, second);
+    printf("Merged linked list: ");
+    display(third);
+
+    struct Node *t1, *t2;
+
+    // Add a loop into the linked list!
+    t1 = first->next->next;
+    t2 = first->next->next->next->next;
+    t2->next = t1;
+
+    printf("\n%s\n", isLoop(first) ? "The linked list has a loop!" : "The linked list doesn't have a loop!");
+
     // display(first);
 
-    first = (struct Node *)malloc(sizeof(struct Node));
-    first = NULL;
-    last = (struct Node *)malloc(sizeof(struct Node));
-    last = NULL;
+    // first = (struct Node *)malloc(sizeof(struct Node));
+    // first = NULL;
+    // last = (struct Node *)malloc(sizeof(struct Node));
+    // last = NULL;
 
-    second = (struct Node *)malloc(sizeof(struct Node));
-    second = NULL;
-    insertEnd(3);
-    insertEnd(5);
-    insertEnd(5);
-    insertEnd(8);
-    insertEnd(8);
-    insertEnd(8);
+    // second = (struct Node *)malloc(sizeof(struct Node));
+    // second = NULL;
+    // insertEnd(3);
+    // insertEnd(5);
+    // insertEnd(5);
+    // insertEnd(8);
+    // insertEnd(8);
+    // insertEnd(8);
 
-    display(first);
+    // display(first);
 
-    removeDuplicates();
+    // removeDuplicates();
 
-    reverse();
+    // reverse();
 
-    reverseSlidingPointer();
+    // reverseSlidingPointer();
 
-    reverseRecursive(NULL, first);
-    printf("\nReversed the linked list using recursion!\n");
-    display(first);
+    // reverseRecursive(NULL, first);
+    // printf("\nReversed the linked list using recursion!\n");
+    // display(first);
 
-    concatenate(first, second);
+    // concatenate(first, second);
 
-    printf("\n%s\n", isSorted() ? "The linked list is sorted!" : "The linked list is not sorted!");
+    // printf("\n%s\n", isSorted() ? "The linked list is sorted!" : "The linked list is not sorted!");
 
     return 0;
 }
