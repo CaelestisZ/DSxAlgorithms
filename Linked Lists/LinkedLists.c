@@ -426,6 +426,55 @@ void concatenate(struct Node *p, struct Node *q)
 
 void merge(struct Node *p, struct Node *q)
 {
+    // Space complexity: O(1)
+    // Time complexity: O(n+m)
+    struct Node *third = NULL;
+    struct Node *last = NULL;
+
+    // Copy the lesser of each of linked list's elements
+    if (p->data < q->data)
+    {
+        third = p;
+        last = p;
+        p = p->next;
+        last->next = NULL;
+    }
+    else
+    {
+        third = q;
+        last = q;
+        q = q->next;
+        last->next = NULL;
+    }
+
+    // Copy the elements in first and second linked lists depending upon which of them is of lesser value
+    while (p != NULL && q != NULL)
+    {
+        if (p->data > q->data)
+        {
+            last->next = q;
+            last = q;
+            last->next = NULL;
+            q = q->next;
+        }
+        else
+        {
+            last->next = p;
+            last = p;
+            last->next = NULL;
+            p = p->next;
+        }
+    }
+
+    // Copy the remaining elements
+    if (p != NULL)
+    {
+        last->next = p;
+    }
+    else
+    {
+        last->next = q;
+    }
 }
 
 int main()
@@ -441,7 +490,6 @@ int main()
 
     second = (struct Node *)malloc(sizeof(struct Node));
     second = NULL;
-
     insertEnd(3);
     insertEnd(5);
     insertEnd(5);

@@ -57,7 +57,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Set operations
 -   And more!
 
-## Strings
+### Strings
 
 **ASCII values: (0-127)** A - 65, a - 97, 0 - 48
 
@@ -77,7 +77,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Check if string is an anagram or not
 -   Permutations of a string using recursion
 
-## Matrices
+### Matrices
 
 **Types of Matrices\***
 
@@ -88,8 +88,32 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   **Tridiagonal matrix:** non zero elements at i-j=0, i-j=1 and i-j=-1. Rest are zeroes.
 -   **Toeplitz matrix:** A[i][j] = A[i-1][j-1] (elements at each of the diagonals are equal)
 
-## Sparse Matrices
+#### Sparse Matrices
 
 -   Matrix in which most of the elements are zero
 -   **3 column representation**
 -   **Co-ordinate list**
+
+## Linked Lists
+
+-   Self referential data structures
+-   Dynamic memory allocation
+
+**Singly linked list operations**
+
+-   Displaying elements
+-   Count number of nodes
+-   Sum of elements
+-   Maximum element
+-   Linear search
+-   Insert at a specific position
+-   Delete at a specific position
+-   Check if sorted
+-   Remove duplicate elements
+-   Reverse the nodes
+    -   Using an auxilliary array
+    -   Using sliding pointers
+    -   Using recursion
+-   Concatenate two linked lists
+-   Merge two linked lists
+-   Check for the presence of loops
