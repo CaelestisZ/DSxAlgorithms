@@ -280,7 +280,7 @@ struct Array *mergeArrayADT(struct Array *A, struct Array *B) {
             C->A[k++] = A->A[i++];
         }
         else {
-            C->A[k++] = A->A[j++];
+            C->A[k++] = B->A[j++];
         }
     }
 
@@ -493,7 +493,7 @@ int duplicateElementsFasterSortedArrayADT(struct Array *A){
         hash[A->A[i]]++;
     }
     for (int i = 0; i<high; i++) {
-        if (hash[i]!=0) {
+        if (hash[i]>1) {
             printf("%d occurs %d times", i, hash[i]);
         }
     }
