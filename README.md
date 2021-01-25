@@ -2,7 +2,7 @@
 
 Core concepts in DS and Algorithms coded in C 🐱‍👤
 
-## Stack & Heap memory
+### Stack & Heap memory
 
 -   **Stack**
     -   Used up for statically allocated memory
@@ -12,7 +12,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Unorganized manner
     -   Must be treated as a resource
 
-## Physical & Logical data structures
+### Physical & Logical data structures
 
 -   **Physical data structures**
     -   Arrays
@@ -24,7 +24,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Graph (non linear)
     -   Hash table (tables)
 
-## Recursion vs loops
+### Recursion vs loops
 
 -   Recursion has an ascending as well as a descending phase considering the recursion stack
 -   Loops have only an ascending phase
@@ -37,7 +37,9 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Indirect recursion
 -   Direct recursion
 
-## Arrays
+## Physical Data Structures
+
+### Arrays
 
 -   Array size is immutable
 
@@ -57,7 +59,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Set operations
 -   And more!
 
-### Strings
+#### Strings
 
 **ASCII values: (0-127)** A - 65, a - 97, 0 - 48
 
@@ -77,7 +79,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Check if string is an anagram or not
 -   Permutations of a string using recursion
 
-### Matrices
+#### Matrices
 
 **Types of Matrices**
 
@@ -88,13 +90,13 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   **Tridiagonal matrix:** non zero elements at i-j=0, i-j=1 and i-j=-1. Rest are zeroes.
 -   **Toeplitz matrix:** A[i][j] = A[i-1][j-1] (elements at each of the diagonals are equal)
 
-#### Sparse Matrices
+##### Sparse Matrices
 
 -   Matrix in which most of the elements are zero
 -   **3 column representation**
 -   **Co-ordinate list**
 
-## Linked Lists
+### Linked Lists
 
 -   Self referential data structures
 -   Dynamic memory allocation
@@ -130,3 +132,10 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Inserting at a position
 -   Deleting from a position
 -   Reversing a doubly linked list
+
+## Logical Data Structures
+
+### Stack
+
+-   Linear Data Structures
+-   Follows a LIFO or FILO order for performing operations
