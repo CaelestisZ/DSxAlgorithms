@@ -142,7 +142,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 ### Stack
 
 -   Linear Data Structures
--   Follows a LIFO order for performing operations
+-   Follows a LIFO or a FILO order for performing operations
 -   Stacks can be implemented using
     -   Arrays
     -   Linked Lists
