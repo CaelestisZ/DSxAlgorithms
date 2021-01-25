@@ -516,11 +516,36 @@ int isLoop(struct Node *first)
     }
 }
 
+int middleElement(struct Node *p)
+{
+    struct Node *q = p;
+    while (q)
+    {
+        q = q->next;
+        if (q)
+        {
+            q = q->next;
+        }
+        if (q)
+        {
+            p = p->next;
+        }
+    }
+    return p->data;
+}
+
+// int intersection(struct Node *p, struct Node *q) {
+//     // Store both the linked lists into a stack
+//     // Pop elements simultaneously from the stack as long as there is a common node
+//     // Stop when there is no common node
+//     // The node at which the pointer stops is the intersection!
+// }
+
 int main()
 {
-    int A[] = {2, 8, 10, 15, 17};
+    int A[] = {1, 2, 3, 4};
     int B[] = {4, 7, 12, 14, 17};
-    create(A, 5);
+    create(A, 4);
     create2(B, 5);
 
     printf("Linked List 1: ");
@@ -536,14 +561,16 @@ int main()
     printf("Merged linked list: ");
     display(third);
 
-    struct Node *t1, *t2;
+    printf("%d is the middle element!\n", middleElement(first));
 
-    // Add a loop into the linked list!
-    t1 = first->next->next;
-    t2 = first->next->next->next->next;
-    t2->next = t1;
+    // struct Node *t1, *t2;
 
-    printf("\n%s\n", isLoop(first) ? "The linked list has a loop!" : "The linked list doesn't have a loop!");
+    // // Add a loop into the linked list!
+    // t1 = first->next->next;
+    // t2 = first->next->next->next->next;
+    // t2->next = t1;
+
+    // printf("\n%s\n", isLoop(first) ? "The linked list has a loop!" : "The linked list doesn't have a loop!");
 
     // display(first);
 
