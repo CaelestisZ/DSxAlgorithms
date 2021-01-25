@@ -547,6 +547,10 @@ int main()
 
     // display(first);
 
+    // printf("%p\n", first);
+    // struct Node *t3 = first;
+    // printf("%p\n", t3);
+
     // first = (struct Node *)malloc(sizeof(struct Node));
     // first = NULL;
     // last = (struct Node *)malloc(sizeof(struct Node));
