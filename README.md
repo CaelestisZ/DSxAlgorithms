@@ -123,3 +123,10 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Displaying elements (recursive and iterative approach)
 -   Inserting at a position
 -   Deleting from a position
+
+**Doubly linked list operations**
+
+-   Displaying elements (recursive and iterative approach)
+-   Inserting at a position
+-   Deleting from a position
+-   Reversing a doubly linked list
