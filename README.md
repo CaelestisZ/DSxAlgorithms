@@ -79,7 +79,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 ### Matrices
 
-**Types of Matrices\***
+**Types of Matrices**
 
 -   **Diagonal matrix:** A[i][j] = 0 if i!=j
 -   **Lower triangular matrix:** A[i][j] = 0 if i < j and A[i][j] != 0 if i >= j
@@ -117,3 +117,9 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Concatenate two linked lists
 -   Merge two linked lists
 -   Check for the presence of loops
+
+**Circular linked list operations**
+
+-   Displaying elements (recursive and iterative approach)
+-   Inserting at a position
+-   Deleting from a position
