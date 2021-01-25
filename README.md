@@ -42,6 +42,8 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 ### Arrays
 
 -   Array size is immutable
+-   Stored in contiguous memory blocks
+-   Memory allocated statically or dynamically
 
 **Array ADT operations**
 
@@ -99,7 +101,9 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 ### Linked Lists
 
 -   Self referential data structures
--   Dynamic memory allocation
+-   Stored in heap memory
+-   Memory allocated dynamically
+-   Non contiguous memory blocks
 
 **Singly linked list operations**
 
