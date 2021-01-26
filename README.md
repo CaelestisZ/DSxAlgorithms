@@ -147,3 +147,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Arrays
     -   Linked Lists
 -   Insertion and deletion occurs essentially on the same side
+-   Applications
+    -   Parenthesis matching
+    -   Infix to Postfix conversion
+    -   Postfix expression evaluation
