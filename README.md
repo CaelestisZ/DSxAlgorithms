@@ -151,3 +151,15 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Parenthesis matching
     -   Infix to Postfix conversion
     -   Postfix expression evaluation
+
+### Queue
+
+-   Linear Data Structures
+-   Follows a FIFO order for performing operations
+-   Queues can be implemented using
+    -   Arrays (Circular queues are implemented rather than the linear queues to efficiently use all contiguous blocks)
+    -   Linked Lists
+-   Insertion occurs on the rear end, deletion occurs on the front end
+-   Applications
+    -   Task scheduling
+    -   Serving requests on a single shared resource
