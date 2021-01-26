@@ -66,7 +66,7 @@ char *infixToPostfix(char *infix)
     int j = 0;
     int i = 0;
     int len = strlen(infix);
-    char *postfix = (char *)malloc(20 * sizeof(char));
+    char *postfix = (char *)malloc((len + 2) * sizeof(char));
 
     while (infix[i] != '\0')
     {
@@ -97,13 +97,52 @@ char *infixToPostfix(char *infix)
     return postfix;
 }
 
+int postfixEvaluation(char *postfix)
+{
+    int x, y, result;
+
+    for (int i = 0; postfix[i] != '\0'; i++)
+    {
+        if (isOperand(postfix[i]))
+        {
+            push(postfix[i] - '0');
+        }
+        else
+        {
+            int y = pop();
+            int x = pop();
+
+            switch (postfix[i])
+            {
+            case '+':
+                result = x + y;
+                break;
+            case '-':
+                result = x - y;
+                break;
+            case '*':
+                result = x * y;
+                break;
+            case '/':
+                result = x / y;
+                break;
+            }
+            push(result);
+        }
+    }
+    return top->data;
+}
+
 int main()
 {
-    char *infix;
-    infix = (char *)malloc(10 * sizeof(char));
+    char *infix = (char *)malloc(20 * sizeof(char));
+    struct Node *top = (struct Node *)malloc(sizeof(struct Node));
+
     printf("Enter the Infix expression: ");
     scanf("%s", infix);
 
     printf("Postfix expression: %s\n", infixToPostfix(infix));
+
+    printf("Result of postfix expression: %d\n", postfixEvaluation(infixToPostfix(infix)));
     return 0;
 }

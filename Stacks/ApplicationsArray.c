@@ -118,20 +118,24 @@ char *infixToPostfix(char *infix)
 
     char *postfix = (char *)malloc(st.size * sizeof(char));
     int j = 0;
+    int i = 0;
 
-    for (int i = 0; infix[i] != '\0'; i++)
+    while (infix[i] != '\0')
     {
-        if (!isOperand(infix[i]))
+        if (isOperand(infix[i]))
         {
-            if (precedence(stackTop(st)) >= precedence(infix[i]))
-            {
-                postfix[j++] = pop(&st);
-            }
-            push(&st, infix[i]);
+            postfix[j++] = infix[i++];
         }
         else
         {
-            postfix[j++] = infix[i];
+            if (precedence(infix[i]) > precedence(stackTop(st)))
+            {
+                push(&st, infix[i++]);
+            }
+            else
+            {
+                postfix[j++] = pop(&st);
+            }
         }
     }
 
@@ -147,6 +151,47 @@ char *infixToPostfix(char *infix)
     return postfix;
 }
 
+int postfixEvaluation(char *postfix)
+{
+    struct Stack st;
+    st.top = -1;
+    st.size = strlen(postfix);
+    st.s = (char *)malloc(st.size * sizeof(char));
+
+    for (int i = 0; postfix[i] != '\0'; i++)
+    {
+        if (isOperand(postfix[i]))
+        {
+            push(&st, postfix[i] - '0');
+        }
+        else
+        {
+            int y = pop(&st);
+            int x = pop(&st);
+
+            int result;
+
+            switch (postfix[i])
+            {
+            case '+':
+                result = x + y;
+                break;
+            case '-':
+                result = x - y;
+                break;
+            case '*':
+                result = x * y;
+                break;
+            case '/':
+                result = x / y;
+                break;
+            }
+            push(&st, result);
+        }
+    }
+    return stackTop(st);
+}
+
 int main()
 {
     char *infix = (char *)malloc(10 * sizeof(char));
@@ -154,6 +199,8 @@ int main()
     scanf("%s", infix);
 
     printf("Postfix expression: %s\n", infixToPostfix(infix));
+
+    printf("Result of postfix expression: %d\n", postfixEvaluation(infixToPostfix(infix)));
 
     return 0;
 }
