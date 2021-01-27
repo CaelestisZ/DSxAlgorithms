@@ -163,3 +163,8 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Applications
     -   Task scheduling
     -   Serving requests on a single shared resource
+-   Types
+    -   Linear queue
+    -   Circular queue
+    -   Double ended queue
+    -   Priority queue
