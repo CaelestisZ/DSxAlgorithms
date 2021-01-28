@@ -95,8 +95,9 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 ##### Sparse Matrices
 
 -   Matrix in which most of the elements are zero
--   **3 column representation**
--   **Co-ordinate list**
+-   Representations
+    -   **3 column representation**
+    -   **Co-ordinate list**
 
 ### Linked Lists
 
@@ -141,12 +142,12 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 ### Stack
 
--   Linear Data Structures
+-   Linear Data Structure
 -   Follows a LIFO order for performing operations
--   Stacks can be implemented using
+-   Insertion and deletion occurs essentially on the same side
+-   Implementations
     -   Arrays
     -   Linked Lists
--   Insertion and deletion occurs essentially on the same side
 -   Applications
     -   Parenthesis matching
     -   Infix to Postfix conversion
@@ -154,12 +155,12 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 ### Queue
 
--   Linear Data Structures
+-   Linear Data Structure
 -   Follows a FIFO order for performing operations
--   Queues can be implemented using
-    -   Arrays (Circular queues are implemented rather than the linear queues to efficiently use all contiguous blocks)
-    -   Linked Lists
 -   Insertion occurs on the rear end, deletion occurs on the front end
+-   Implementations
+    -   Arrays (Circular queues are implemented instead of linear queues to efficiently use all contiguous blocks)
+    -   Linked Lists
 -   Applications
     -   Task scheduling
     -   Serving requests on a single shared resource
@@ -168,3 +169,17 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Circular queue
     -   Double ended queue
     -   Priority queue
+
+### Trees
+
+-   Non-Linear Data Structure
+-   Types
+    -   Depending on the maximum number of children for the each node (binary, n-ary trees)
+    -   Full Binary Trees
+    -   Complete (almost complete (yes. it's the same thing)) Binary Trees
+    -   Strict Binary Trees: Degree of each node must be either 0 or 2
+-   Implementations
+    -   Arrays (parent: i, left: 2i, right: 2i+1)
+    -   Linked Lists (structure similar to that of a doubly linked lists
+-   It is necessary to have the preorder/postorder traversal as well as the inorder traversal for constructing a Binary Tree.
+-   Number of trees possible with n nodes = Catalan number
