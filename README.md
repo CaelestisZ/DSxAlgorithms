@@ -181,7 +181,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 -   Implementations
     -   Arrays (parent: i, left: 2i, right: 2i+1)
     -   Linked Lists (structure similar to that of a doubly linked lists)
--   It is necessary to have the preorder/postorder traversal as well as the inorder traversal for constructing a Binary Tree.
+-   It is necessary to have the preorder/postorder traversal along with the inorder traversal for constructing a Binary Tree
 -   Number of trees possible with n nodes = Catalan number
 
 ### Binary Search Trees
