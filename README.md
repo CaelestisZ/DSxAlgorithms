@@ -180,6 +180,16 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Strict Binary Trees: Degree of each node must be either 0 or 2
 -   Implementations
     -   Arrays (parent: i, left: 2i, right: 2i+1)
-    -   Linked Lists (structure similar to that of a doubly linked lists
+    -   Linked Lists (structure similar to that of a doubly linked lists)
 -   It is necessary to have the preorder/postorder traversal as well as the inorder traversal for constructing a Binary Tree.
 -   Number of trees possible with n nodes = Catalan number
+
+### Binary Search Trees
+
+-   Logical variant of the binary tree, built for search optimization
+-   Duplicate elements are not allowed in a BST
+-   t->left < root < t->right 
+-   Left and right subtrees must also be a BST 
+-   Inorder traversal gives a sorted order of the nodes
+-   Therefore to construct a BST, the preorder/postorder traversal is sufficient 
+-   Drawback: The efficiency of a BST is wholly based upon the order of insertion of nodes [O(log(n)) to O(n)]
