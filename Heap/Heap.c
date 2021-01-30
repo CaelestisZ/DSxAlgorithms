@@ -65,6 +65,41 @@ void heapSort(int A[], int n)
     }
 }
 
+void heapify(int A[], int n, int i)
+{
+    int largest = i;
+    int left = 2 * i + 1;
+    int right = 2 * i + 2;
+
+    // int leftOrRight = A[left] > A[right] ? left : right;
+
+    // if (A[leftOrRight] > A[i])
+    // {
+    //     int temp = A[leftOrRight];
+    //     A[leftOrRight] = A[i];
+    //     A[i] = temp;
+    //     heapify(A, n, leftOrRight);
+    // }
+
+    if (A[left] > A[largest])
+    {
+        largest = left;
+    }
+    if (A[right] > A[largest])
+    {
+        largest = right;
+    }
+
+    if (largest != i)
+    {
+        int temp = A[largest];
+        A[largest] = A[i];
+        A[i] = temp;
+
+        heapify(A, n, largest);
+    }
+}
+
 void display(int A[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -87,14 +122,14 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        scanf("%d ", &A[i]);
+        scanf("%d ", (A + i));
     }
 
     // create(A, n);
 
     // heapSort(A, n);
 
-    heapify(A, n);
+    heapify(A, n, 0);
 
     display(A, n);
 
