@@ -300,8 +300,6 @@ int main()
     // recursiveInsert(root, 9);
     // recursiveInsert(root, 12);
     // recursiveInsert(root, 11);
-    // recursiveInsert(root, 17);
-    // recursiveInsert(root, 7);
 
     // deleteNode(root, 12);
 
