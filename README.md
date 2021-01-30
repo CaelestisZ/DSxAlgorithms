@@ -1,6 +1,6 @@
 # Data Structures & Algorithms
 
-Core concepts in DS and Algorithms coded in C 🐱‍👤
+Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 
 ### Stack & Heap memory
 
@@ -18,11 +18,11 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Arrays
     -   Linked Lists
 -   **Logical data structures** are implemented using physical data structures
-    -   Stack (linear)
-    -   Queue (linear)
-    -   Tree (non linear)
-    -   Graph (non linear)
-    -   Hash table (tables)
+    -   Stacks (linear)
+    -   Queues (linear)
+    -   Trees (non linear)
+    -   Graphs (non linear)
+    -   Hash tables (tables)
 
 ### Recursion vs loops
 
@@ -96,8 +96,8 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 -   Matrix in which most of the elements are zero
 -   Representations
-    -   **3 column representation**
-    -   **Co-ordinate list**
+    -   3 column representation
+    -   Co-ordinate list
 
 ### Linked Lists
 
@@ -140,7 +140,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
 
 ## Logical Data Structures
 
-### Stack
+### Stacks
 
 -   Linear Data Structure
 -   Follows a LIFO order for performing operations
@@ -153,7 +153,7 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Infix to Postfix conversion
     -   Postfix expression evaluation
 
-### Queue
+### Queues
 
 -   Linear Data Structure
 -   Follows a FIFO order for performing operations
@@ -180,16 +180,32 @@ Core concepts in DS and Algorithms coded in C 🐱‍👤
     -   Strict Binary Trees: Degree of each node must be either 0 or 2
 -   Implementations
     -   Arrays (parent: i, left: 2i, right: 2i+1)
-    -   Linked Lists (structure similar to that of a doubly linked lists)
+    -   Linked Lists (structure similar to that of doubly linked lists)
 -   It is necessary to have the preorder/postorder traversal along with the inorder traversal for constructing a Binary Tree
 -   Number of trees possible with n nodes = Catalan number
 
-### Binary Search Trees
+#### Binary Search Trees
 
 -   Logical variant of the binary tree, built for search optimization
 -   Duplicate elements are not allowed in a BST
--   t->left < root < t->right 
+-   root->left < root < root->right
 -   Left and right subtrees must also be a BST 
 -   Inorder traversal gives a sorted order of the nodes
 -   Therefore to construct a BST, the preorder/postorder traversal is sufficient 
 -   Drawback: The efficiency of a BST is wholly based upon the order of insertion of nodes [O(log(n)) to O(n)]
+
+#### Binary Heap
+
+-   Must be an almost complete binary tree
+-   Therefore, height = log(n)
+-   Types
+    -   Max heap: Ancestors are greater in value than their descendants
+    -   Min heap: Ancestors are smaller in value than their descendants
+-   Usually represented in arrays
+-   Parent: i, Left child: 2i, Right child: 2i+1
+-   Implementations
+    -   Inserting
+    -   Deleting (the root node) 
+    -   Heap sort
+    -   Heapify
+    -   Priority queues
