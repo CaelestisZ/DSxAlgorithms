@@ -208,4 +208,4 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Deleting (the root node) 
     -   Heap sort
     -   Heapify
-    -   Priority queues
+    -   Priority queues (log(n) time complexity achieved using heap)
