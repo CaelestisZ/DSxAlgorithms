@@ -210,6 +210,20 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Heapify
     -   Priority queues (log(n) time complexity achieved using heap)
 
+### Hash Tables
+
+-   Searching possible in O(1) at the cost of large storage space
+-   Ideal hash function: maps a distinct set of elements to a set of integers with no collisions
+-   Ideal hash functions usually require a large storage space and hence is to be dealt with 
+
+-   **Hashing Techniques to avoid collisions**
+    -   Open hashing (dynamically creates additional space)
+        -   Chaining
+    -   Closed hashing (open addressing)
+        -   Linear Probing
+        -   Quadratic Probing
+        -   Double Hashing
+
 ## Popular Sorting Algorithms
 
 -   **Comparison based sort**
