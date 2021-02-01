@@ -209,3 +209,24 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Heap sort
     -   Heapify
     -   Priority queues (log(n) time complexity achieved using heap)
+
+## Popular Sorting Algorithms
+
+-   **Comparison based sort**
+    -   O(n^2)
+        -   Bubble Sort
+        -   Insertion Sort
+        -   Selection Sort
+    -   O(n*log(n))
+        -   Heap Sort
+        -   Merge Sort
+        -   Quick Sort
+        -   Tree Sort
+    -   O(n^(3/2))
+        -   Shell Sort
+-   **Index based sort**
+    -   O(n)
+        -   Count Sort
+        -   Bucket/Bin Sort
+        -   Radix Sort
+  
