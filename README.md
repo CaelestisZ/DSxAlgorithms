@@ -37,6 +37,12 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   Indirect recursion
 -   Direct recursion
 
+### [Asymptotic Notations](https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/)
+
+-   Theta Notation: Defines exact asymptotic behaviour
+-   Big O Notation: Defines upper bound of an algorithm
+-   Omega Notation: Defines the asymptotic lower bound
+
 ## Physical Data Structures
 
 ### Arrays
@@ -215,7 +221,6 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   Searching possible in O(1) at the cost of large storage space
 -   Ideal hash function: maps a distinct set of elements to a set of integers with no collisions
 -   Ideal hash functions usually require a large storage space and hence is to be dealt with 
-
 -   **Hashing Techniques to avoid collisions**
     -   Open hashing (dynamically creates additional space)
         -   Chaining
@@ -229,6 +234,10 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
             -   Uses two hash functions to compute the new index in case of a collision
             -   For instance, h1(x) = x % 10 and h2(x) = 7 - (x % 7)
                 -   Further in the case of collision, h'(x) = (h1(x) + i * h2(x)) % 10
+
+### Graphs
+
+-   
 
 ## Popular Sorting Algorithms
 
