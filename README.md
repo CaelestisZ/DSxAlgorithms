@@ -220,9 +220,15 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Open hashing (dynamically creates additional space)
         -   Chaining
     -   Closed hashing (open addressing)
-        -   Linear Probing
-        -   Quadratic Probing
+        -   Linear Probing 
+            -   n(keys)/size(HT) <= 0.5
+            -   Different keys might form a cluster together (primary clustering))
+            -   Deletion operation is not easy, rehashing must be implemented
+        -   Quadratic Probing (introduced to avoid the clustering issue in linear probing)
         -   Double Hashing
+            -   Uses two hash functions to compute the new index in case of a collision
+            -   For instance, h1(x) = x % 10 and h2(x) = 7 - (x % 7)
+                -   Further in the case of collision, h'(x) = (h1(x) + i * h2(x)) % 10
 
 ## Popular Sorting Algorithms
 
