@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Chaining Implementation
+
 struct Node
 {
     int data;

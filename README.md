@@ -37,15 +37,15 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   Indirect recursion
 -   Direct recursion
 
-### [Asymptotic Notations](https://www.geeksforgeeks.org/analysis-of-algorithms-set-3asymptotic-notations/)
+### Asymptotic Notations
 
--   Theta Notation: Defines exact asymptotic behaviour
--   Big O Notation: Defines upper bound of an algorithm
--   Omega Notation: Defines the asymptotic lower bound
+-   **Big O Notation:** Defines upper bound of an algorithm
+-   **Omega Notation:** Defines the asymptotic lower bound
+-   **Theta Notation:** Defines exact asymptotic behaviour
 
 ## Physical Data Structures
 
-### Arrays
+### [Arrays](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Arrays)
 
 -   Array size is immutable
 -   Stored in contiguous memory blocks
@@ -105,7 +105,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   3 column representation
     -   Co-ordinate list
 
-### Linked Lists
+### [Linked Lists](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Linked%20Lists)
 
 -   Self referential data structures
 -   Stored in heap memory
@@ -146,7 +146,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 
 ## Logical Data Structures
 
-### Stacks
+### [Stacks](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Stacks)
 
 -   Linear Data Structure
 -   Follows a LIFO order for performing operations
@@ -159,7 +159,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Infix to Postfix conversion
     -   Postfix expression evaluation
 
-### Queues
+### [Queues](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Queues)
 
 -   Linear Data Structure
 -   Follows a FIFO order for performing operations
@@ -176,7 +176,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Double ended queue
     -   Priority queue
 
-### Trees
+### [Trees](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Trees)
 
 -   Non-Linear Data Structure
 -   Types
@@ -190,7 +190,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   It is necessary to have the preorder/postorder traversal along with the inorder traversal for constructing a Binary Tree
 -   Number of trees possible with n nodes = Catalan number
 
-#### Binary Search Trees
+#### [Binary Search Trees](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/BST)
 
 -   Logical variant of the binary tree, built for search optimization
 -   Duplicate elements are not allowed in a BST
@@ -200,7 +200,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   Therefore to construct a BST, the preorder/postorder traversal is sufficient 
 -   Drawback: The efficiency of a BST is wholly based upon the order of insertion of nodes [O(log(n)) to O(n)]
 
-#### Binary Heap
+#### [Binary Heap](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Heap)
 
 -   Must be an almost complete binary tree
 -   Therefore, height = log(n)
@@ -216,7 +216,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
     -   Heapify
     -   Priority queues (log(n) time complexity achieved using heap)
 
-### Hash Tables
+### [Hashing](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Hashing)
 
 -   Searching possible in O(1) at the cost of large storage space
 -   Ideal hash function: maps a distinct set of elements to a set of integers with no collisions

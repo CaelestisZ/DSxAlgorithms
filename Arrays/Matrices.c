@@ -1,33 +1,43 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-// Note: if you're passing an array's address pass the array itself and not its ampersand-ed value!
-
-struct Matrix {
+struct Matrix
+{
     int *A;
     int n;
 };
 
-void setMatrix(struct Matrix *A, int i, int j, int key) {
-    if (i>=j) {
-        A->A[i*(i-1)/2+j-1] = key; 
+// Diagonal matrix implementation
+
+void setMatrix(struct Matrix *A, int i, int j, int key)
+{
+    if (i >= j)
+    {
+        A->A[i * (i - 1) / 2 + j - 1] = key;
     }
 }
 
-int getMatrix(struct Matrix A, int i, int j) {
-    if (i>=j) {
-        return A.A[i*(i-1)/2+j-1];
+int getMatrix(struct Matrix A, int i, int j)
+{
+    if (i >= j)
+    {
+        return A.A[i * (i - 1) / 2 + j - 1];
     }
     return 0;
 }
 
-int displayMatrix(struct Matrix A) {
-    for (int i = 1; i<=A.n; i++) {
-        for (int j = 1; j<=A.n; j++) {
-            if (i>=j) {
-                printf("%d ", A.A[i*(i-1)/2+j-1]);
+int displayMatrix(struct Matrix A)
+{
+    for (int i = 1; i <= A.n; i++)
+    {
+        for (int j = 1; j <= A.n; j++)
+        {
+            if (i >= j)
+            {
+                printf("%d ", A.A[i * (i - 1) / 2 + j - 1]);
             }
-            else {
+            else
+            {
                 printf("0 ");
             }
         }
@@ -35,11 +45,12 @@ int displayMatrix(struct Matrix A) {
     }
 }
 
-int main() {
+int main()
+{
     struct Matrix A;
     A.n = 5;
 
-    A.A = (int *)malloc((A.n*(A.n+1)/2)*sizeof(int));
+    A.A = (int *)malloc((A.n * (A.n + 1) / 2) * sizeof(int));
 
     setMatrix(&A, 1, 1, 1);
     setMatrix(&A, 2, 2, 2);
@@ -72,7 +83,6 @@ int main() {
     // printf("%d is the element at (%d, %d)\n", getDiagonalMatrix(A, 5, 5), 5, 5);
 
     // displayDiagonalMatrix(A);
-
 
     return 0;
 }
