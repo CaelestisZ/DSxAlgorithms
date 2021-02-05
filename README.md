@@ -43,6 +43,26 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   **Omega Notation:** Defines the asymptotic lower bound
 -   **Theta Notation:** Defines exact asymptotic behaviour
 
+## Sorting Algorithms
+
+-   **Comparison based sort**
+    -   O(n^2)
+        -   Bubble Sort
+        -   Insertion Sort
+        -   Selection Sort
+    -   O(n*log(n))
+        -   Heap Sort
+        -   Merge Sort
+        -   Quick Sort
+        -   Tree Sort
+    -   O(n^(3/2))
+        -   Shell Sort
+-   **Index based sort**
+    -   O(n)
+        -   Count Sort
+        -   Bucket/Bin Sort
+        -   Radix Sort
+
 ## Physical Data Structures
 
 ### [Arrays](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Arrays)
@@ -235,26 +255,9 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
             -   For instance, h1(x) = x % 10 and h2(x) = 7 - (x % 7)
                 -   Further in the case of collision, h'(x) = (h1(x) + i * h2(x)) % 10
 
-### Graphs
+### [Graphs](https://github.com/CaelestisZ/DSxAlgorithms/tree/main/Graphs)
 
--   
-
-## Popular Sorting Algorithms
-
--   **Comparison based sort**
-    -   O(n^2)
-        -   Bubble Sort
-        -   Insertion Sort
-        -   Selection Sort
-    -   O(n*log(n))
-        -   Heap Sort
-        -   Merge Sort
-        -   Quick Sort
-        -   Tree Sort
-    -   O(n^(3/2))
-        -   Shell Sort
--   **Index based sort**
-    -   O(n)
-        -   Count Sort
-        -   Bucket/Bin Sort
-        -   Radix Sort
+-   [Types and applications](https://www.geeksforgeeks.org/graph-types-and-applications/)
+-   Representations
+    -   Adjacency matrix (Space complexity: O(|V|^2))
+    -   Adjacency list (Space complexity: O(|V|+2*|E|))
