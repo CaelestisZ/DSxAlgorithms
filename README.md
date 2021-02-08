@@ -43,7 +43,7 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   **Omega Notation:** Defines the asymptotic lower bound
 -   **Theta Notation:** Defines exact asymptotic behaviour
 
-## Sorting Algorithms
+### Sorting Algorithms
 
 -   **Comparison based sort**
     -   O(n^2)
@@ -261,3 +261,5 @@ Core concepts in Data Structures and Algorithms coded in C 🐱‍👤
 -   Representations
     -   Adjacency matrix (Space complexity: O(|V|^2))
     -   Adjacency list (Space complexity: O(|V|+2*|E|))
+-   BFS of graph = level order of the graph's tree equivalent
+-   DFS of graph = preorder of the graph's tree equivalent
